@@ -1,0 +1,13 @@
+<section class="mt-6 rounded-2xl border border-blue-200 bg-white/90 backdrop-blur-sm p-6 shadow-xl">
+    <div class="flex gap-3">
+        <input
+            class="flex-1 rounded-xl bg-blue-50 px-4 py-3 ring-2 ring-blue-200 focus:outline-none focus:ring-blue-500 focus:bg-white transition-all duration-200 placeholder-blue-400"
+            placeholder="What needs to be done?" [(ngModel)]="todo" (keyup.enter)="addTodo(todo)"
+            aria-label="New todo" />
+        <button
+            class="rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-3 font-semibold text-white hover:from-blue-600 hover:to-blue-700 disabled:opacity-50 transition-all duration-200 shadow-lg hover:shadow-xl"
+            (click)="addTodo(todo)">
+            Add
+        </button>
+    </div>
+</section>

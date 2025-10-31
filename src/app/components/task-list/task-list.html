@@ -1,0 +1,24 @@
+<section class="mt-6 rounded-2xl border border-blue-200 bg-white/90 backdrop-blur-sm p-6 shadow-xl">
+    <app-task-stats></app-task-stats>
+    <!-- List -->
+    <ul role="list" class="space-y-3 max-h-80 overflow-auto pr-2">
+        @for (todo of todos(); track todo.id) {
+        <li class="group flex items-center justify-between gap-4 rounded-2xl border border-blue-200 bg-blue-50/50 p-4 hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 shadow-sm hover:shadow-md"
+            [class.bg-blue-100/80]="!todo.completed" [class.bg-blue-50/40]="todo.completed"
+            [class.opacity-70]="todo.completed" [class.hover\:opacity-100]="todo.completed"
+            [class.hover\:bg-blue-100/60]="todo.completed">
+            <label class="flex flex-1 items-center gap-4">
+                <input type="checkbox" class="size-5 accent-blue-500 rounded" [checked]="todo.completed"
+                    (click)="toggleTodo(todo.id)" />
+                <input
+                    class="flex-1 rounded-xl bg-transparent px-3 py-2 ring-2 ring-transparent focus:outline-none focus:ring-blue-400 focus:bg-white transition-all duration-200"
+                    [class.line-through]="todo.completed" [class.text-blue-400]="todo.completed" [value]="todo.todo"
+                    (keyup.enter)="renameTodo(todo.id, $event.target.value); $event.target.blur()" />
+            </label>
+            <button
+                class="rounded-xl border-2 border-blue-300 px-3 py-2 text-blue-600 transition-all duration-200 hover:border-blue-500 hover:bg-blue-500 hover:text-white font-medium"
+                (click)="removeTodo(todo.id)">✕</button>
+        </li>
+        }
+    </ul>
+</section>

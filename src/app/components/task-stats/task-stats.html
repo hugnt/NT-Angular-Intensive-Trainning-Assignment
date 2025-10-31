@@ -1,0 +1,12 @@
+@if (stats().total == 0) {
+<p class="text-blue-500 text-center py-8 font-medium">No tasks yet - add your first todo above!</p>
+} @else {
+<!-- Stats -->
+<div class="mb-4 flex items-center justify-between">
+    <h3 class="text-lg font-bold text-blue-800">Tasks</h3>
+    <span
+        class="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 px-4 py-2 text-sm font-medium text-white shadow-lg">
+        {{ stats().active }} active • {{ stats().completed }} done • {{
+        stats().total }} total</span>
+</div>
+}
